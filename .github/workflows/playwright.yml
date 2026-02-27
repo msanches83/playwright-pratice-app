@@ -12,13 +12,13 @@ jobs:
     - uses: actions/checkout@v4
     - uses: actions/setup-node@v4
       with:
-        node-version: lts/*
+        node-version: 22
     - name: Install dependencies
       run: npm ci --force
     - name: Install Playwright Browsers
       run: npx playwright install --with-deps --force
     - name: Run Playwright tests
-      run: npm rum pageObjects-chrome
+      run: npm run pageObjects-chrome
     - uses: actions/upload-artifact@v4
       if: ${{ !cancelled() }}
       with:
